@@ -41,7 +41,7 @@ Football-Data.org API를 활용하여 실시간 경기 데이터를 제공하며
 
 ### 경기 결과 및 일정 페이지
 ![경기 결과 및 일정 페이지](assets/schedule_results_wireframe.png)
-
+![경기 결과 및 일정 페이지](assets/schedule_cal_wireframe.png)
 ---
 ## 언어
 [![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
