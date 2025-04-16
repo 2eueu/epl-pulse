@@ -15,7 +15,8 @@ app.get('/get-matches/:teamId', async (req, res) => {
         const apiUrl = `https://api.football-data.org/v4/teams/${teamId}/matches`;
 
         const response = await axios.get(apiUrl, {
-            headers: { 'X-Auth-Token': '##토큰##' }
+            headers: { 'X-Auth-Token': '2d25702dea504a21960c3a1608499972
+' }
         });
 
         res.json(response.data);
@@ -30,7 +31,7 @@ app.get('/get-league-table', async (req, res) => {
         const apiUrl = 'https://api.football-data.org/v4/competitions/PL/standings';
 
         const response = await axios.get(apiUrl, {
-            headers: { 'X-Auth-Token': '##토큰##' }
+            headers: { 'X-Auth-Token': '2d25702dea504a21960c3a1608499972' }
         });
 
         res.json(response.data);
