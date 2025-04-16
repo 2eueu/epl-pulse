@@ -15,8 +15,7 @@ app.get('/get-matches/:teamId', async (req, res) => {
         const apiUrl = `https://api.football-data.org/v4/teams/${teamId}/matches`;
 
         const response = await axios.get(apiUrl, {
-            headers: { 'X-Auth-Token': '2d25702dea504a21960c3a1608499972
-' }
+            headers: { 'X-Auth-Token': '2d25702dea504a21960c3a1608499972' }
         });
 
         res.json(response.data);
