@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EPL 경기 정보</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1>EPL 경기 일정 및 결과 ⚽</h1>
+    </header>
+
+    <main>
+        <!-- 홈 페이지 -->
+        <section id="home-page">
+            <h2>프리미어 리그 (EPL) 소개</h2>
+            <p>영국 잉글랜드의 최상위 프로 축구 리그. 다른 국가의 축구 리그와는 달리 축구 종주국으로 국가명을 따로 붙이지 않기에 정식 명칭은 'Premier League', 약칭은 'PL'이지만 편의상 타 리그와 구분을 위해 앞에 England의 E를 붙인 'EPL(잉글리시 프리미어 리그)'로 쓰는 경우도 있다.
+            </p>
+
+            <h3>현재 EPL 리그 순위 차트</h3>
+            <canvas id="leagueChart"></canvas>
+
+            <div class="button-container">
+                <button id="go-to-team-select">클럽 선택하기</button>
+            </div>
+        </section>
+
+        <!-- 팀 선택 페이지 -->
+        <section id="team-select-page" style="display: none;">
+            <h2>클럽을 선택하세요</h2>
+
+            <!-- 이미지로 선택 -->
+            <div class="team-logos">
+                <div class="team">
+                    <img src="https://i.namu.wiki/i/_TMYi1-kxIiGfAXPN-NJ52MNdsE7c1pWh4k3HfKaw_GW45jw7R1XXNZwUIXL2mEcp3D-wxvPgp-o48j-XCoVNA.svg" alt="아스널"  data-team-id="57">
+                    <span>아스널</span>
+                </div>
+                <div class="team">
+                    <img src="https://i.namu.wiki/i/5wP1KEz95XkHHVCr_Q235gdKfGZx4kdKja4AcIF6pWPzDtY6YYOoU3k62zaR7ZJ2Nct6mWsjFyKrZnaNfJdKxg.svg" alt="애스턴 빌라"  data-team-id="58">
+                    <span>애스턴 빌라</span>
+                </div>
+                <div class="team">
+                    <img src="https://i.namu.wiki/i/GOcWzQvJ2aYQl8dwccvXy_lmp_HBFrPEsFr2KRQg98H9g-h1xkSTv5VY-EUPDJbPiOgY4df78NFLM_Ib7uNR8A.svg" alt="본머스" o data-team-id="1044">
+                    <span>본머스</span>
+                </div>
+                <div class="team">
+                    <img src="https://i.namu.wiki/i/2UC8fgyGpqrnmgJEl5CgUGrCMiwTlZzLeYqBNOLfZwFu_9PKwWchqvtXWK-sWDFyJIuZmzBFgJbdcqf0LawsqQ.svg" alt="브렌트포드"  data-team-id="402">
+                    <span>브렌트포드</span>
+                </div>
+                <div class="team">
+                    <img src="https://i.namu.wiki/i/E5-nXqOTz1Ls0UWjFFgvXCgRdSY62WfxsSqlVpQDFAjFTCutfMM-cBpQ5p7R1yA6vbbXgC0uZFN3KHb9qFAKVQ.svg" alt="브라이턴"  data-team-id="397">
+                    <span>브라이턴</span>
+                </div>
+                <div class="team">
+                    <img src="https://i.namu.wiki/i/xzclJVT6B3pWJHp5BlN0PRQFo64DezmUlTgPoIwU9ZonpVIpSS3-gbA8zhV8FuHwrfsrW2G0xVCo-csikPSfxiKZq9jaWk3Jy0Q9jSfIAPP1dyOZX-tGI1Z0hS0At0My44t-9Jp7uaO9hGHwAwFlJA.svg" alt="첼시"  data-team-id="61">
+                    <span>첼시</span>
+                </div>
+                <div class="team">
+                    <img src="https://i.namu.wiki/i/Hdlyss5fsqAnl_5ahxy10WMf4AEsyK_eHDBxz44XxkkFpW_Bd-OUIOZuBoJSLdkutv8FabPsnjygKHlf_IIecNPPdpuyOd5_g4KI3_sdCwslgyxUIpE1ahwqwwnRqsAOJqufpvJIe2drv4moOzBizA.svg" alt="크리스탈 팰리스"  data-team-id="354">
+                    <span>크리스탈 팰리스</span>
+                </div>
+                <div class="team">
+                    <img src="https://i.namu.wiki/i/v7DgVizFVFT1aZ7Kt6TGFNM-hXbuzJnym1J9Y_MINnvvWfgh3OULExpUG42XJDjOvYq-22WRgBS5mJaRNeUH4_SUcl4CQ4G6QYNg-domlYR9-CtvtbJlk22ebaHO_7wD42LE4umrv2vIKi088D92hA.svg" alt="에버턴"  data-team-id="62">
+                    <span>에버턴</span>
+                </div>
+                <div class="team">
+                    <img src="https://i.namu.wiki/i/ysF6hzSUxL-xCGlXHwaPVjDk9OJKxYbhwAu0eYPc4GEp0RO_MYhOhCC-mLEveeTV-s9UTcPrmfUosItomtd8epnF50Hhg1D1RKbf1yaXlHFBn30ytVuPAf3dS6MliSnEU51_dtc61Q5g4bDYG2nVQg.svg" alt="풀럼"  data-team-id="63">
+                    <span>풀럼</span>
+                </div>
+                <div class="team">
+                    <img src="https://i.namu.wiki/i/n1neB6t1yzlp1m44sUfF6oVg3CNJFjfD24r1upZZjBG-PT4dHD6i1PH5qpQbMkQ47cDQb9IIn0TT7bmM_bz28eIG0KuwlCNaZL_Vq-4eVzM6CBMimP2lOa2vHke_t4_unLluCbqHQJzTqxRRLKDGyA.svg" alt="리버풀"  data-team-id="64">
+                    <span>리버풀</span>
+                </div>
+                
+                <div class="team">
+                    <img src="https://i.namu.wiki/i/B4H0sgZFTYNmBSvhXUcRUSC4h28LgoiTfr2VpLipOlVXhG5DXJ5yDGAu2FKE_Q1n1yZzjyK6UKWqRISMWAI8drzM0Zhm6UNE3-05x9IW-jSXHQc4q3-jg8Wp5hiIUmX2p0HcTROB-PyMWeNvyhzsYQ.svg" alt="맨체스터 시티"  data-team-id="65">
+                    <span>맨체스터 시티</span>
+                </div>
+
+                <div class="team">
+                    <img src="https://i.namu.wiki/i/RQYn12lz6n6DuRP3n_0m1U0k6bzsuk_gxaJg9hTHyXTTYEp68x09roJaQUJttXyBb7RZuIUEEaWFfYSnFO7Co4RkIWI7mHYmxVgcrPWPDg38_NJetzuESEI2DP17fKjEjX4ZDacXSf2dsDlTSumakA.svg" alt="맨체스터 유나이티드"  data-team-id="66">
+                    <span>맨체스터 유나이티드</span>
+                </div>
+
+                <div class="team">
+                    <img src="https://i.namu.wiki/i/VNtxC_OjlKleBiOMriBooIr8XYUstE5thP65CL0mth_59Ri5yGQIPGP81FhOfpGsmxKpUftBsiE88SsfWdmILVW8smWx6t-IONuuE5T_CCkEHPDoukalM69KPbqXlKmFkrSSKBVcT8W439YZYpzenQ.svg" alt="뉴캐슬"  data-team-id="67">
+                    <span>뉴캐슬</span>
+                </div>
+
+                <div class="team">
+                    <img src="https://i.namu.wiki/i/FElfxLF7sjGAYv3ZfHRssegsJ5OUM6dLNlLTGfnPQ-rmBTIDftV-jI62VPC0OHa9P2b1n9DWluYRen0--Wqe-XFMx1QFbz_2BnF0-xFUyNtvDGNdRsbFT1S9hi-VpzuaJKlvTwcC_57DSQhuA3veQw.svg" alt="노팅엄 포레스트"  data-team-id="351">
+                    <span>노팅엄 포레스트</span>
+                </div>
+
+                <div class="team">
+                    <img src="https://i.namu.wiki/i/uz6q1pzP56kgQYCDIA_TiFuoRRP3hEUi0I1qTk8KHABQp2sck2bo-dH49pfqSpxaLwezlANnzzukcXdh1cNCSQ4T3HxXGAxWZP8e5WL9m2WmTqGnOt_bM0jz8NaGR3oQ-J-BWy3P1WWXyPNK7r-P6g.svg" alt="토트넘 훗스퍼"  data-team-id="73">
+                    <span>토트넘 훗스퍼</span>
+                </div>
+
+                <div class="team">
+                    <img src="https://i.namu.wiki/i/FoEX-VxtelMrjNOmtQadpdKn4Jlf4aXbdrB97kvJ5is_1ORWVR9zkb5wPv27UHsB2hNj0HqSv7PF1c0DXHOc_w.svg" alt="웨스트햄"  data-team-id="563">
+                    <span>웨스트햄</span>
+                </div>
+
+
+                <div class="team">
+                    <img src="https://i.namu.wiki/i/Nkt8wImvKbt_yMBnFml0Xs56hvcs4CbqgsMPeq8ZgPp5sxtSbKGj11fpHtEaLtdMcBzxyTxOiWdek5XIzIkV6F79OrsjSAeb2ZBRGN6x606bVWnKlK5oAAteiZ5kZfVYEbavWTt2pW16uAE5M-L2GQ.svg" alt="울버햄튼"  data-team-id="76">
+                    <span>울버햄튼</span>
+                </div>
+                <div class="team">
+                    <img src="https://i.namu.wiki/i/YJDNPpmUX7EFK5s0HY_ZHzaOfmGnJDJIIB8HS5Zz5GZ0pt2PByXufWpr16IHT71rpFDalkuegCZyU87zixw14CdSohPYgyOXc-0EX0EtVrYNfqtmgTjTch-A6UXeacMrbXrDWT4g4GEUFWdP50Qu1w.svg" alt="레스터 시티"  data-team-id="338">
+                    <span>레스터 시티</span>
+                </div>
+                <div class="team">
+                    <img src="https://i.namu.wiki/i/QgGEfab-04HNTF0IX3dlJ_gtkMe6aMJa6fc5mHK88VRL6lB0py4diCqP5WMpCLocEd7ZyHlqlhmGPg7BJzYwHc1cnyb08fPYRj9pCH-vJi9Cd2C3Akm_uJ_T3Fn9JGxE8wq529qdVIBbAnXIHNlcmQ.svg" alt="사우스햄튼"  data-team-id="340">
+                    <span>사우스햄튼</span>
+                </div>
+                <div class="team">
+                    <img src="https://i.namu.wiki/i/uVvk5FSp7PJX8jMHLPadLqOH3mylzaF4Xnb-Nh16C_E4nw-4DEVr6mXegQvoGLX2k9c-I4VUw2q2Ekr_USdGYAU6u4vffXROx5bY4FTRRCZZFkc-NF0Qsp4-f5cP40ZGjrNQ-QClfX-A4ZPTJTyW_g.svg" alt="입스위치 타운"  data-team-id="341">
+                    <span>입스위치 타운</span>
+                </div>
+            </div>
+
+            <div class="button-container">
+                <button id="back-to-home">뒤로가기</button>
+            </div>
+        </section>
+
+        <!-- 경기 결과 및 일정 페이지 -->
+        <section id="schedule-page" style="display: none;">
+            <h2 id="team-name">경기 결과 및 일정</h2>
+
+            <div class="section-content">
+                <h3>경기 결과</h3>
+                <div id="results"></div>
+            </div>
+
+            <div class="section-content">
+                <h3>경기 일정</h3>
+                <div id="calendar-container">
+                    <div class="calendar-header">
+                        <button id="prev-month">&lt;</button>
+                        <h3 id="current-month"></h3>
+                        <button id="next-month">&gt;</button>
+                    </div>
+                    <table class="calendar-table">
+                        <thead>
+                            <tr>
+                                <th>일</th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th><th>토</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="button-container">
+                <button id="back-to-teams">팀 선택으로 돌아가기</button>
+            </div>
+        </section>
+    </main>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
