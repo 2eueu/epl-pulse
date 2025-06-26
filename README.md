@@ -1,13 +1,13 @@
-# ⚽ EPL Match Tracker
+#  EPL Match Tracker
 
-## 🏆 Project Overview
+##  Project Overview
 
 EPL Match Tracker is a web application designed for Premier League fans to check match schedules and results in real-time.  
 It leverages the [Football-Data.org](https://www.football-data.org/) API to provide live updates and presents information through a user-friendly interface with dynamic visualizations.
 
 ---
 
-## 🔍 Key Features
+##  Key Features
 
 1. **Home Page**
    - Header text: "EPL Match Schedule & Results ⚽"
@@ -35,40 +35,40 @@ It leverages the [Football-Data.org](https://www.football-data.org/) API to prov
 
 ---
 
-## 🖼️ Wireframes
+## Wireframes
 
-### 🏠 Home Page  
+### Home Page  
 ![Home Page](assets/homepage_wireframe.png)
 
-### 🧩 Team Selection Page  
+###  Team Selection Page  
 ![Team Selection](assets/team_selection_wireframe.png)
 
-### 📅 Match Schedule & Results Page  
+###  Match Schedule & Results Page  
 ![Schedule Results Page](assets/schedule_results_wireframe.png)  
 ![Calendar View](assets/schedule_cal_wireframe.png)
 
 ---
 
-## 🛠️ Technologies Used
+##  Technologies Used
 
-### 👨‍💻 Frontend  
+###  Frontend  
 [![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
 [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
-### 🖥️ Backend  
+###  Backend  
 [![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/)
 [![Express](https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com/)
 [![JSON](https://img.shields.io/badge/JSON-000000?style=for-the-badge&logo=json&logoColor=white)](https://www.json.org/)
 
-### 📡 API  
+### API  
 [![Football-Data.org](https://img.shields.io/badge/Football--Data.org-264653?style=for-the-badge&logo=soccer&logoColor=white)](https://www.football-data.org/)
 
-### 📊 Libraries  
+### Libraries  
 [![Chart.js](https://img.shields.io/badge/Chart.js-F5788D?style=for-the-badge&logo=chartdotjs&logoColor=white)](https://www.chartjs.org/)
 ---
 
-## 🌐 Languages
+## Languages
 
 [![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
 [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
@@ -76,7 +76,7 @@ It leverages the [Football-Data.org](https://www.football-data.org/) API to prov
 
 ---
 
-## 👤 Author
+##  Author
 
 - **GaEun Lee**  
 - Department of AI Engineering, Sookmyung Women’s University  
@@ -84,6 +84,6 @@ It leverages the [Football-Data.org](https://www.football-data.org/) API to prov
 
 ---
 
-## 📄 License
+##  License
 
 MIT License © 2024 GaEun Lee (2eueu_)
